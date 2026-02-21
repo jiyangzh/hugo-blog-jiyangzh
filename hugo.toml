@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Project'
+languageCode = 'zh-CN'
+title = 'RBTree On the Fence'
 
 
 [module]
