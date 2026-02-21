@@ -1,0 +1,73 @@
+.post-layout {
+  display: block;
+}
+
+.post-toc {
+  display: none;
+}
+
+@media (min-width: 1360px) {
+  .post-layout.has-toc {
+    display: block;
+  }
+
+  .post-toc {
+    display: block;
+    font-size: 0.875rem;
+    position: fixed;
+    top: 5.5rem;
+    left: calc(50% + 390px);
+    width: 14rem;
+  }
+
+  .post-toc-inner {
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    padding-left: 1rem;
+    max-height: calc(100vh - 7rem);
+    overflow: auto;
+  }
+
+  .dark .post-toc-inner {
+    border-left-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .post-toc h2 {
+    margin: 0 0 0.6rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .post-toc nav ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .post-toc nav ul ul {
+    margin-top: 0.25rem;
+    padding-left: 0.8rem;
+  }
+
+  .post-toc li {
+    margin: 0.25rem 0;
+  }
+
+  .post-toc a {
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 120ms ease;
+  }
+
+  .post-toc a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .post-toc a.is-active {
+    opacity: 1;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}
