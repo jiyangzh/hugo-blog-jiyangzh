@@ -3,6 +3,8 @@ languageCode = 'zh-cn'
 DefaultContentLanguage = 'zh-cn'
 title = 'RBTree On the Fence'
 enableInlineShortcodes = true
+hasCJKLanguage = true
+
 
 [menu]
   [[menu.main]]

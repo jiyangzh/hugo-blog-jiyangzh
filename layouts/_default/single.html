@@ -5,22 +5,26 @@
     <h1 class="my-0! pb-2.5">{{- .Title -}}</h1>
 
     {{- if ne .Type "page" -}}
-    <div class="text-xs antialiased opacity-60">
-      {{- if .Date -}}
-      <time>{{- .Date | time.Format ":date_medium" -}}</time>
-      {{- end -}}<!---->
-      {{- $single_author := or .Params.Author .Params.author site.Params.author site.Params.name site.Title -}}
-      <!---->
-      {{- if $single_author -}}
-      <span class="mx-1">&middot;</span>
-      <span>{{- $single_author -}}</span>
-      {{- end -}}
-    </div>
-    {{- end -}}
+    <div class="mt-4 rounded-lg border-l-2 border-black/20 bg-black/[3%] px-4 py-3 text-sm leading-7 dark:border-white/25 dark:bg-white/[8%]">
+      <div class="text-xs antialiased opacity-70">
+        {{- if .Date -}}
+        <time>{{- .Date | time.Format ":date_medium" -}}</time>
+        {{- end -}}<!---->
+        {{- $single_author := or .Params.Author .Params.author site.Params.author site.Params.name site.Title -}}
+        <!---->
+        {{- if $single_author -}}
+        <span class="mx-1">&middot;</span>
+        <span>{{- $single_author -}}</span>
+        {{- end -}}
+        <span class="mx-1">&middot;</span>
+        <span>{{- .WordCount -}} words</span>
+        <span class="mx-1">&middot;</span>
+        <span>{{- .ReadingTime -}} min read</span>
+      </div>
 
-    <!-- Post Taxonomies -->
-    {{- if or .Params.tags .Params.categories -}}
-    <div class="mt-4 text-sm leading-7 opacity-85">
+      <!-- Post Taxonomies -->
+      {{- if or .Params.tags .Params.categories -}}
+      <div class="mt-1 text-sm leading-7 opacity-85">
       {{- if .Params.categories -}}
       <div>
         <span class="opacity-70">Category: </span>
@@ -40,6 +44,7 @@
         <a class="underline underline-offset-2 decoration-1" href="{{- $href -}}">{{- $tag -}}</a>
         {{- end -}}
       </div>
+      {{- end -}}
       {{- end -}}
     </div>
     {{- end -}}
@@ -117,16 +122,28 @@
   <!-- Post Nav -->
   {{- if not site.Params.disablePostNavigation -}}<!---->
   {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}<!---->
-  {{- if and (gt (len $pages) 1) (in $pages . ) -}}
+  {{- if in $pages . -}}
+  {{- $nextPost := $pages.Next . -}}
+  {{- $prevPost := $pages.Prev . -}}
   <nav
     class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]">
-    {{- with $pages.Next . -}}
-    <a class="ltr:pr-3 rtl:pl-3" href="{{- .Permalink -}}"><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>{{- .Name
-        -}}</span></a>
-    {{- end -}}<!---->
-    {{- with $pages.Prev . -}}
-    <a class="justify-end pl-3 ltr:ml-auto rtl:mr-auto" href="{{- .Permalink -}}"><span>{{- .Name -}}</span><span
-        class="ltr:ml-1.5 rtl:mr-1.5">→</span></a>
+    {{- if $nextPost -}}
+    <a class="ltr:pr-3 rtl:pl-3" href="{{- $nextPost.Permalink -}}">
+      <span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>{{- $nextPost.Name -}}</span>
+    </a>
+    {{- else -}}
+    <div class="ltr:pr-3 rtl:pl-3 opacity-70">
+      <span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>No previous post</span>
+    </div>
+    {{- end -}}
+    {{- if $prevPost -}}
+    <a class="justify-end pl-3 ltr:ml-auto rtl:mr-auto" href="{{- $prevPost.Permalink -}}">
+      <span>{{- $prevPost.Name -}}</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span>
+    </a>
+    {{- else -}}
+    <div class="justify-end pl-3 ltr:ml-auto rtl:mr-auto opacity-70">
+      <span>No newer post</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span>
+    </div>
     {{- end -}}
   </nav>
   {{- end -}}<!---->
