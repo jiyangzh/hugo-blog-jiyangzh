@@ -71,3 +71,123 @@
     text-decoration: underline;
   }
 }
+
+.blog-list-layout {
+  display: block;
+}
+
+.taxonomy-rail {
+  display: none;
+}
+
+@media (min-width: 1360px) {
+  .blog-list-layout.has-taxonomy-rail {
+    display: block;
+  }
+
+  .taxonomy-rail {
+    display: block;
+    position: fixed;
+    top: 5.5rem;
+    left: calc(50% + 390px);
+    width: 14rem;
+    font-size: 0.9rem;
+  }
+
+  .taxonomy-rail-inner {
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    padding-left: 1rem;
+    max-height: calc(100vh - 7rem);
+    overflow: auto;
+  }
+
+  .dark .taxonomy-rail-inner {
+    border-left-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .taxonomy-block+.taxonomy-block {
+    margin-top: 1.2rem;
+  }
+
+  .taxonomy-block h2 {
+    margin: 0 0 0.6rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .taxonomy-block ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .taxonomy-block li {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 0.3rem;
+    margin: 0.25rem 0;
+  }
+
+  .taxonomy-block a {
+    text-decoration: none;
+    opacity: 0.85;
+    overflow-wrap: anywhere;
+  }
+
+  .taxonomy-block a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .taxonomy-block span {
+    opacity: 0.65;
+    white-space: nowrap;
+  }
+
+  .taxonomy-more {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.78rem;
+    text-decoration: none;
+    opacity: 0.75;
+  }
+
+  .taxonomy-more:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tag-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.2rem;
+    padding: 0.12rem 0.45rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    opacity: 0.9;
+  }
+
+  .dark .tag-chip {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .tag-chip span {
+    opacity: 0.7;
+    font-size: 0.78em;
+  }
+
+  .tag-chip:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+}
