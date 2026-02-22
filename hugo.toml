@@ -45,6 +45,7 @@ rss = true                                     # show rss icon
 avatar = 'https://files.mastodon.social/accounts/avatars/115/707/959/569/272/437/original/a8b470bb203793c9.png'                 # gravatar email or image url
 name = 'RBTree'
 bio = 'RBTree是红黑树，因为每次看到红黑树我就头疼，遗忘速度仅次于KMP，所以不如拿最头疼的概念当在线身份好了。'
+siteStart = '2026-02-21T00:00:00Z'                # blog launch time for uptime panel
 
 
 # misc
