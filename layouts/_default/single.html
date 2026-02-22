@@ -17,6 +17,32 @@
       {{- end -}}
     </div>
     {{- end -}}
+
+    <!-- Post Taxonomies -->
+    {{- if or .Params.tags .Params.categories -}}
+    <div class="mt-4 text-sm leading-7 opacity-85">
+      {{- if .Params.categories -}}
+      <div>
+        <span class="opacity-70">Category: </span>
+        {{- range $i, $category := .Params.categories -}}
+        {{- if gt $i 0 -}}, {{- end -}}
+        {{- $href := print (absURL "categories/") (urlize $category) -}}
+        <a class="underline underline-offset-2 decoration-1" href="{{- $href -}}">{{- $category -}}</a>
+        {{- end -}}
+      </div>
+      {{- end -}}
+      {{- if .Params.tags -}}
+      <div>
+        <span class="opacity-70">Tags: </span>
+        {{- range $i, $tag := .Params.tags -}}
+        {{- if gt $i 0 -}}<span class="opacity-60"> &amp; </span>{{- end -}}
+        {{- $href := print (absURL "tags/") (urlize $tag) -}}
+        <a class="underline underline-offset-2 decoration-1" href="{{- $href -}}">{{- $tag -}}</a>
+        {{- end -}}
+      </div>
+      {{- end -}}
+    </div>
+    {{- end -}}
   </header>
 
   {{- $showToc := and (ne .Type "page") (ne .Params.toc false) -}}
@@ -88,54 +114,19 @@
   </script>
   {{- end -}}
 
-  <!-- Post Taxonomies -->
-  {{- if or .Params.tags .Params.categories .Params.series -}}
-  <footer class="mt-12 flex flex-wrap items-center gap-2">
-    {{- range .Params.tags -}}
-    {{- $href := print (absURL "tags/") (urlize .) -}}
-    <a
-      class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]"
-      href="{{- $href -}}"
-      >#{{- . -}}</a
-    >
-    {{- end -}}
-    {{- range .Params.categories -}}
-    {{- $href := print (absURL "categories/") (urlize .) -}}
-    <a
-      class="mb-1.5 rounded-lg bg-black/[5%] px-5 py-1 no-underline hover:bg-black/[8%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[10%] dark:hover:bg-white/[15%]"
-      href="{{- $href -}}"
-      >@{{- . -}}</a
-    >
-    {{- end -}}
-    {{- range .Params.series -}}
-    {{- $href := print (absURL "series/") (urlize .) -}}
-    <a
-      class="mb-1.5 rounded-lg bg-black/[7%] px-5 py-1 no-underline hover:bg-black/[10%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[14%] dark:hover:bg-white/[18%]"
-      href="{{- $href -}}"
-      >+{{- . -}}</a
-    >
-    {{- end -}}
-  </footer>
-  {{- end -}}
-
   <!-- Post Nav -->
   {{- if not site.Params.disablePostNavigation -}}<!---->
   {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}<!---->
   {{- if and (gt (len $pages) 1) (in $pages . ) -}}
   <nav
-    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"
-  >
+    class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]">
     {{- with $pages.Next . -}}
-    <a class="ltr:pr-3 rtl:pl-3" href="{{- .Permalink -}}"
-      ><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>{{- .Name -}}</span></a
-    >
+    <a class="ltr:pr-3 rtl:pl-3" href="{{- .Permalink -}}"><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>{{- .Name
+        -}}</span></a>
     {{- end -}}<!---->
     {{- with $pages.Prev . -}}
-    <a
-      class="justify-end pl-3 ltr:ml-auto rtl:mr-auto"
-      href="{{- .Permalink -}}"
-      ><span>{{- .Name -}}</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a
-    >
+    <a class="justify-end pl-3 ltr:ml-auto rtl:mr-auto" href="{{- .Permalink -}}"><span>{{- .Name -}}</span><span
+        class="ltr:ml-1.5 rtl:mr-1.5">→</span></a>
     {{- end -}}
   </nav>
   {{- end -}}<!---->
@@ -192,11 +183,8 @@
   <!-- giscus comment -->
   {{- if and site.Params.giscus.repo (not (eq .Params.comments false)) -}}
   <div class="giscus mt-24! text-black dark:text-white"></div>
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="{{- site.Params.giscus.repo -}}"
-    data-repo-id="{{- site.Params.giscus.repoId -}}"
-    data-category="{{- site.Params.giscus.category -}}"
+  <script src="https://giscus.app/client.js" data-repo="{{- site.Params.giscus.repo -}}"
+    data-repo-id="{{- site.Params.giscus.repoId -}}" data-category="{{- site.Params.giscus.category -}}"
     data-category-id="{{- site.Params.giscus.categoryId -}}"
     data-mapping="{{- site.Params.giscus.mapping | default (print `pathname`) -}}"
     data-strict="{{- site.Params.giscus.strict | default (print `1`) -}}"
@@ -205,10 +193,7 @@
     data-input-position="{{- site.Params.giscus.inputPosition | default (print `top`) -}}"
     data-theme="{{- site.Params.giscus.theme | default (print `light`) -}}"
     data-lang="{{- site.Params.giscus.lang | default (print `en`) -}}"
-    data-loading="{{- site.Params.giscus.loading | default (print `lazy`) -}}"
-    crossorigin="anonymous"
-    async
-  ></script>
+    data-loading="{{- site.Params.giscus.loading | default (print `lazy`) -}}" crossorigin="anonymous" async></script>
   {{- end -}}
 </article>
 
