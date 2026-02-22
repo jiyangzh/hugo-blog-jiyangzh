@@ -54,6 +54,10 @@
       {{- end -}}
       <h2 class="my-0!">{{- .Title -}}</h2>
       <time class="text-xs antialiased opacity-60">{{- .Date | time.Format ":date_medium" -}}</time>
+      {{- with .Summary -}}
+      <p class="mt-2 text-sm opacity-75">{{ . | plainify }}</p>
+      {{- end -}}
+      <p class="mt-1 text-xs font-medium opacity-70">Read more →</p>
       <a class="absolute inset-0 text-[0px]" href="{{- .Permalink -}}">{{- .Title -}}</a>
     </section>
     {{- end -}}
