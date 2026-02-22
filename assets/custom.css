@@ -129,16 +129,35 @@
     justify-content: flex-start;
     gap: 0.3rem;
     margin: 0.25rem 0;
+    border-radius: 0.4rem;
+    transition: background-color 120ms ease, transform 120ms ease;
   }
 
   .taxonomy-block a {
     text-decoration: none;
     opacity: 0.85;
     overflow-wrap: anywhere;
+    transition: opacity 120ms ease, color 120ms ease;
   }
 
   .taxonomy-block a:hover {
     opacity: 1;
+    text-decoration: underline;
+    color: #fc7100;
+  }
+
+  .taxonomy-block li:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateX(2px);
+  }
+
+  .dark .taxonomy-block li:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .taxonomy-block li:hover a {
+    opacity: 1;
+    color: #fc7100;
     text-decoration: underline;
   }
 
@@ -175,6 +194,7 @@
     background: rgba(0, 0, 0, 0.06);
     text-decoration: none;
     opacity: 0.9;
+    transition: background-color 120ms ease, opacity 120ms ease, transform 120ms ease;
   }
 
   .dark .tag-chip {
@@ -189,5 +209,11 @@
   .tag-chip:hover {
     opacity: 1;
     text-decoration: none;
+    transform: translateY(-1px);
+    background: rgba(0, 0, 0, 0.12);
+  }
+
+  .dark .tag-chip:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
 }
