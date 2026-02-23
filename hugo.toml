@@ -37,7 +37,7 @@ color = 'linen' # linen, wheat, gray, light
 author = 'RBTree'
 
 # header social icons
-github = 'jiyangzh'                            # github.com/YOUR_GITHUB_ID
+# github = 'jiyangzh'                            # github.com/YOUR_GITHUB_ID
 mastodon = 'https://mastodon.social/@rbtree27'
 rss = true                                     # show rss icon
 
@@ -69,3 +69,7 @@ siteStart = '2026-02-21T00:00:00Z'                # blog launch time for uptime 
 # mapping = 'pathname'
 # theme = 'light'
 # lang = 'zh-CN'
+
+# twikoo
+[params.twikoo]
+envId = "https://twikoo-comment-rbtree.netlify.app/.netlify/functions/twikoo"
