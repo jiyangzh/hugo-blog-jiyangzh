@@ -129,20 +129,20 @@
     class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]">
     {{- if $olderPost -}}
     <a class="ltr:pr-3 rtl:pl-3" href="{{- $olderPost.Permalink -}}">
-      <span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>{{- $olderPost.Name -}}</span>
+      <span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>上一篇：{{- $olderPost.Name -}}</span>
     </a>
     {{- else -}}
     <div class="ltr:pr-3 rtl:pl-3 opacity-70">
-      <span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>No older post</span>
+      <span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>没有更早的文章</span>
     </div>
     {{- end -}}
     {{- if $newerPost -}}
     <a class="justify-end pl-3 ltr:ml-auto rtl:mr-auto" href="{{- $newerPost.Permalink -}}">
-      <span>{{- $newerPost.Name -}}</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span>
+      <span>下一篇：{{- $newerPost.Name -}}</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span>
     </a>
     {{- else -}}
     <div class="justify-end pl-3 ltr:ml-auto rtl:mr-auto opacity-70">
-      <span>No newer post</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span>
+      <span>没有更新的文章</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span>
     </div>
     {{- end -}}
   </nav>
