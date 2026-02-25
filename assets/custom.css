@@ -217,3 +217,308 @@
     background: rgba(255, 255, 255, 0.2);
   }
 }
+
+/* ============================================
+   Twikoo Comments
+   ============================================ */
+
+/* Avatar - square with rounded corners */
+.tk-avatar {
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+}
+
+.tk-avatar .tk-avatar-img {
+  display: block !important;
+  width: 130% !important;
+  height: 130% !important;
+  margin: -15% !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+}
+
+.tk-avatar svg {
+  display: block !important;
+  width: 130% !important;
+  height: 130% !important;
+  margin: -15% !important;
+}
+
+/* Shrink avatar in the submit form area */
+.tk-submit .tk-avatar,
+.tk-comment .tk-submit .tk-avatar {
+  width: 2rem !important;
+  height: 2rem !important;
+  min-width: 2rem !important;
+}
+
+/* ---- Meta inputs (Nickname / Email / Website) ---- */
+
+/* The outer group wrapper */
+.twikoo .el-input-group {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Prepend label (Nickname, Email, Website) */
+.twikoo .el-input-group__prepend {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  border-right: none !important;
+  color: inherit !important;
+  opacity: 1 !important;
+  font-size: 0.85rem !important;
+  padding: 0 0.75rem !important;
+}
+
+.dark .twikoo .el-input-group__prepend {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Input field next to prepend */
+.twikoo .el-input-group--prepend .el-input__inner {
+  background-color: transparent !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  border-left: none !important;
+  color: inherit !important;
+  font-size: 0.9rem !important;
+}
+
+.dark .twikoo .el-input-group--prepend .el-input__inner {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: inherit !important;
+}
+
+.twikoo .el-input-group--prepend .el-input__inner:hover {
+  border-color: rgba(0, 0, 0, 0.35) !important;
+}
+
+.dark .twikoo .el-input-group--prepend .el-input__inner:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.twikoo .el-input-group--prepend .el-input__inner:focus {
+  border-color: rgba(0, 0, 0, 0.5) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dark .twikoo .el-input-group--prepend .el-input__inner:focus {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ---- Standalone inputs and textarea ---- */
+/* Comment textarea clear boundary */
+.twikoo .el-textarea__inner {
+  border: 1px solid rgba(0, 0, 0, 0.25) !important;
+  border-radius: 8px !important;
+  background-color: transparent !important;
+}
+
+.twikoo .el-textarea__inner:focus {
+  border-color: rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08) !important;
+}
+
+.dark .twikoo .el-textarea__inner {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.dark .twikoo .el-textarea__inner:focus {
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Textarea character count */
+.twikoo .el-textarea .el-input__count {
+  background: transparent !important;
+  color: inherit !important;
+  opacity: 0.4;
+  font-size: 0.75rem !important;
+}
+
+/* ---- Buttons ---- */
+
+/* Send button */
+.twikoo .el-button--primary {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  font-size: 0.9rem !important;
+  transition: opacity 0.2s !important;
+}
+
+.twikoo .el-button--primary:hover,
+.twikoo .el-button--primary:focus {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  opacity: 0.75;
+}
+
+.dark .twikoo .el-button--primary {
+  background-color: #fff !important;
+  border-color: #fff !important;
+  color: #000 !important;
+}
+
+.dark .twikoo .el-button--primary:hover,
+.dark .twikoo .el-button--primary:focus {
+  background-color: #fff !important;
+  border-color: #fff !important;
+  opacity: 0.75;
+}
+
+/* Preview and other secondary buttons */
+.twikoo .el-button:not(.el-button--primary):not(.el-button--text) {
+  background-color: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 8px !important;
+  color: inherit !important;
+  font-size: 0.9rem !important;
+  transition: border-color 0.2s, opacity 0.2s !important;
+}
+
+.twikoo .el-button:not(.el-button--primary):not(.el-button--text):hover {
+  border-color: rgba(0, 0, 0, 0.4) !important;
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+.dark .twikoo .el-button:not(.el-button--primary):not(.el-button--text) {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.dark .twikoo .el-button:not(.el-button--primary):not(.el-button--text):hover {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Button row spacing */
+.tk-row.actions {
+  gap: 8px !important;
+}
+
+.twikoo .el-button+.el-button {
+  margin-left: 8px !important;
+}
+
+/* ---- Comment list ---- */
+
+.tk-comment {
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  padding-top: 1rem !important;
+}
+
+.dark .tk-comment {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Nickname */
+.tk-nick-link {
+  font-weight: 600 !important;
+  color: inherit !important;
+}
+
+.tk-nick-link:hover {
+  color: inherit !important;
+  opacity: 0.7;
+}
+
+/* Time and extras */
+.tk-extras,
+.tk-time {
+  opacity: 0.45 !important;
+  font-size: 0.8rem !important;
+}
+
+/* Action icons - remove blue */
+.tk-action-icon,
+.tk-action-link,
+.tk-action-icon-solid {
+  color: inherit !important;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.tk-action-link:hover {
+  color: inherit !important;
+  opacity: 1;
+}
+
+/* Refresh/settings icons in comments title */
+.tk-icon.__comments,
+.tk-comments-title svg,
+.tk-comments-title a {
+  color: inherit !important;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.tk-comments-title a:hover {
+  opacity: 0.8;
+}
+
+/* Comments count */
+.tk-comments-count {
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+}
+
+/* ---- Preview container ---- */
+.tk-preview-container {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  background: transparent !important;
+}
+
+.dark .tk-preview-container {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ---- Powered by footer ---- */
+.tk-footer {
+  opacity: 0.35 !important;
+  font-size: 0.75rem !important;
+}
+
+/* ---- Emoji picker ---- */
+.OwO .OwO-body {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+.dark .OwO .OwO-body {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: #2a2a2a !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ---- Pagination ---- */
+.tk-pagination-pager.__current {
+  background-color: #000 !important;
+  border-radius: 4px !important;
+  color: #fff !important;
+}
+
+.dark .tk-pagination-pager.__current {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* ---- Badges ---- */
+.tk-tag-blue {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: inherit !important;
+  border-radius: 4px !important;
+}
+
+.dark .tk-tag-blue {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}

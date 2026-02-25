@@ -5,7 +5,8 @@
     <h1 class="my-0! pb-2.5">{{- .Title -}}</h1>
 
     {{- if ne .Type "page" -}}
-    <div class="mt-4 rounded-lg border-l-2 border-black/20 bg-black/[3%] px-4 py-3 text-sm leading-7 dark:border-white/25 dark:bg-white/[8%]">
+    <div
+      class="mt-4 rounded-lg border-l-2 border-black/20 bg-black/[3%] px-4 py-3 text-sm leading-7 dark:border-white/25 dark:bg-white/[8%]">
       <div class="text-xs antialiased opacity-70">
         {{- if .Date -}}
         <time>{{- .Date | time.Format ":date_medium" -}}</time>
@@ -25,29 +26,29 @@
       <!-- Post Taxonomies -->
       {{- if or .Params.tags .Params.categories -}}
       <div class="mt-1 text-sm leading-7 opacity-85">
-      {{- if .Params.categories -}}
-      <div>
-        <span class="opacity-70">Category: </span>
-        {{- range $i, $category := .Params.categories -}}
-        {{- if gt $i 0 -}}, {{- end -}}
-        {{- $href := print (absURL "categories/") (urlize $category) -}}
-        <a class="underline underline-offset-2 decoration-1" href="{{- $href -}}">{{- $category -}}</a>
+        {{- if .Params.categories -}}
+        <div>
+          <span class="opacity-70">Category: </span>
+          {{- range $i, $category := .Params.categories -}}
+          {{- if gt $i 0 -}}, {{- end -}}
+          {{- $href := print (absURL "categories/") (urlize $category) -}}
+          <a class="underline underline-offset-2 decoration-1" href="{{- $href -}}">{{- $category -}}</a>
+          {{- end -}}
+        </div>
+        {{- end -}}
+        {{- if .Params.tags -}}
+        <div>
+          <span class="opacity-70">Tags: </span>
+          {{- range $i, $tag := .Params.tags -}}
+          {{- if gt $i 0 -}}<span class="opacity-60"> &amp; </span>{{- end -}}
+          {{- $href := print (absURL "tags/") (urlize $tag) -}}
+          <a class="underline underline-offset-2 decoration-1" href="{{- $href -}}">{{- $tag -}}</a>
+          {{- end -}}
+        </div>
+        {{- end -}}
         {{- end -}}
       </div>
       {{- end -}}
-      {{- if .Params.tags -}}
-      <div>
-        <span class="opacity-70">Tags: </span>
-        {{- range $i, $tag := .Params.tags -}}
-        {{- if gt $i 0 -}}<span class="opacity-60"> &amp; </span>{{- end -}}
-        {{- $href := print (absURL "tags/") (urlize $tag) -}}
-        <a class="underline underline-offset-2 decoration-1" href="{{- $href -}}">{{- $tag -}}</a>
-        {{- end -}}
-      </div>
-      {{- end -}}
-      {{- end -}}
-    </div>
-    {{- end -}}
   </header>
 
   {{- $showToc := and (ne .Type "page") (ne .Params.toc false) -}}
@@ -211,6 +212,24 @@
     data-theme="{{- site.Params.giscus.theme | default (print `light`) -}}"
     data-lang="{{- site.Params.giscus.lang | default (print `en`) -}}"
     data-loading="{{- site.Params.giscus.loading | default (print `lazy`) -}}" crossorigin="anonymous" async></script>
+  {{- end -}}
+
+  <!-- Twikoo -->
+  {{- if and site.Params.twikoo.envId (not (eq .Params.comments false)) -}}
+  <hr class="mt-24 mb-8 opacity-20">
+  <div id="tcomment"></div>
+  <script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.min.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (!window.twikoo) return;
+      window.twikoo.init({
+        envId: '{{- site.Params.twikoo.envId -}}',
+        el: '#tcomment',
+        path: window.location.pathname,
+        placeholder: '随便说点？',
+      });
+    });
+  </script>
   {{- end -}}
 </article>
 
