@@ -1,0 +1,52 @@
+{{- $url := .Get "url" -}}
+{{- $comment := .Get "comment" -}}
+{{- $myrating := .Get "myrating" -}}
+
+{{- if not $url -}}
+  <p style="color:red">neodb shortcode: missing required "url" parameter</p>
+{{- else -}}
+
+{{- $parsed := urls.Parse $url -}}
+{{- $apiUrl := printf "https://neodb.social/api%s" $parsed.Path -}}
+{{- $opts := dict "headers" (dict "Accept" "application/json") -}}
+{{- with try (resources.GetRemote $apiUrl $opts) -}}
+  {{- with .Err -}}
+    <p style="color:red">neodb: failed to fetch ({{ . }})</p>
+  {{- else with .Value -}}
+    {{- with .Content | transform.Unmarshal -}}
+      {{- $title := .display_title | default .title -}}
+      {{- $cover := .cover_image_url -}}
+      {{- $brief := .brief -}}
+      {{- $category := .category -}}
+      {{- $rating := .rating -}}
+      <div class="db-card">
+        <div class="db-card-subject">
+          <div class="db-card-post">
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $cover }}" alt="{{ $title }}">
+          </div>
+          <div class="db-card-content">
+            <div class="db-card-title">
+              <a href="{{ $url }}" target="_blank" rel="noreferrer noopener">「{{ $title }}」</a>
+            </div>
+            {{- if $rating -}}
+            <div class="db-card-rating">均分：{{ $rating }}/10{{- if $myrating }} &nbsp;·&nbsp; 我的评分：{{ $myrating }}{{- end -}}</div>
+            {{- else if $myrating -}}
+            <div class="db-card-rating">我的评分：{{ $myrating }}</div>
+            {{- end -}}
+            {{- if $brief -}}
+            <div class="db-card-abstract">{{ $brief }}</div>
+            {{- end -}}
+            {{- if $comment -}}
+            <div class="db-card-comment">{{ $comment }}</div>
+            {{- end -}}
+          </div>
+          {{- if $category -}}
+          <div class="db-card-cate">{{ $category }}</div>
+          {{- end -}}
+        </div>
+      </div>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- end -}}

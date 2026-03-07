@@ -18,19 +18,24 @@ categories = ["流水账"]
 
 ### Other Rivers
 
+{{< neodb url="https://neodb.social/book/5GUFRLFtBClmDDu0zncpiq" >}}
 何伟的书买了大半年了，拖拖拉拉这才看完，有一些已经在 The New Yorker 读过了。何伟给不同的两代中国学生上课，一代是迎接全球化富裕浪潮的农村学生，一代是正在时代红利过去的中产大学生，精神风貌总有些不同。好在毕竟是四川大学，他没遭遇什么极端的冲突。Covid的冲击他有着第一手的体验，现在读来还是让人ptsd。Covid改变了很多人，从健康到思想，三年封锁都不能提的今天，最珍贵的就是留下一份自身的记录。
 何伟的书要真说文学性，可能也算不上太多。最有意思的还是他的视角，一个旁观者，自己生活中习以为常的东西能在他的放大镜下变得有趣，也可能矛盾，这种敏锐是日常生活其中的人所不自知的。
 
 ### Just for fun
 
+{{< neodb url="https://neodb.social/book/1RHjqUUwHaf3U3iUv0BkcW" >}}
 Linus Torvalds 自传。除了玩梗以外，Linus 和 RMS 是我觉得虽然思想倾向不同，成果上又是极端相近的两个人。一个单纯因为喜欢折腾创造了Linux，一个因为有着 free software 的理想进行软件开发运动。北欧的环境果然是自闭天堂，把自己关在家里废寝忘食开发也不觉得奇怪。还在继续阅读中。。。
 
 ## 影
 
 ### 凶降喜讯
 
+{{< neodb url="https://neodb.social/movie/1BFRTIA4ztxaKoPRxm8ifa" >}}
 政治讽刺喜剧做的属于够夸张了，抢着接上通讯信号脑洞成西部牛仔对枪，赤军被讽刺得像是过家家。又到了我最喜欢的阁下时间，五学小鬼狂喜。
 
 ### 蒲公英
+
+{{< neodb url="https://neodb.social/movie/147iVjVIt4GS3wVNpCp0bz" >}}
 
 美食片，以为讲的是拉面做得如何美味，中间役所广司又生生演出了一部情色片，生鸡蛋，牡蛎，吃的都那么有性意味。比起其他作品把美食崇高化，这里把食物反而日常化了。
