@@ -1,6 +1,6 @@
 +++
 date = '2026-04-12T13:09:40-07:00'
-draft = true
+draft = false
 title = 'CLI 迷思'
 tags = ["抱怨", "dev"]
 categories = ["务虚"]
