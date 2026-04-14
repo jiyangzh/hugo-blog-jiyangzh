@@ -3,7 +3,7 @@ date = '2026-04-12T13:09:40-07:00'
 draft = false
 title = 'CLI 迷思'
 tags = ["抱怨", "dev"]
-categories = ["务虚"]
+categories = ["乱侃"]
 +++
 
 本文的出发点单纯是不爽拍脑袋的技术决策和AI FOMO的普遍心态，其中情绪化的表达仅代表个人观点。

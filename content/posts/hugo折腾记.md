@@ -3,7 +3,7 @@ date = '2026-02-22T21:06:19-08:00'
 draft = false
 title = 'Hugo折腾记'
 tags = ['hugo', '折腾']
-categories = ['日常记录']
+categories = ['折腾记']
 +++
 
 周六突然觉得想折腾独立建博客了，每次博客都是半途而废原因有：

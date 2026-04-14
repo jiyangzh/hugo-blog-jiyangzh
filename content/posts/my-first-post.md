@@ -4,7 +4,7 @@ draft = false
 title = 'My First Post'
 author = 'RBTree'
 tags = ["hugo", "notes"]
-categories = ["blog"]
+categories = ["折腾记"]
 series = ["learning-hugo"]
 +++
 

@@ -3,7 +3,7 @@ date = '2026-03-28T20:00:20-07:00'
 draft = false
 title = '公共交通与NIMBY'
 tags = ['公交']
-categories = ['务虚']
+categories = ['乱侃']
 +++
 
 随着link 2号线的开通，各种社交平台上又开始了“link带着homeless入侵东亚图”的言论。
