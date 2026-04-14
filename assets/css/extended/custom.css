@@ -1,3 +1,7 @@
+:root {
+  --main-width: 960px;
+}
+
 .post-layout {
   display: block;
 }
@@ -16,7 +20,7 @@
     font-size: 0.875rem;
     position: fixed;
     top: 5.5rem;
-    left: calc(50% + 390px);
+    left: calc(50% + 500px);
     width: 14rem;
   }
 
@@ -89,7 +93,7 @@
     display: block;
     position: fixed;
     top: 5.5rem;
-    left: calc(50% + 390px);
+    left: calc(50% + 500px);
     width: 14rem;
     font-size: 0.9rem;
   }
