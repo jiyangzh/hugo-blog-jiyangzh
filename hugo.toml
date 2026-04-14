@@ -47,7 +47,6 @@ ShowToc = true
 comments = true
 
 [params.homeInfoParams]
-Title = 'RBTree'
 Content = '好奇心和自我探索'
 
 [[params.socialIcons]]
